@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/start_the_count
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        hbm2ddl:
+          auto: none
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:/database/schema.sql
+      data-locations: classpath:/database/data.sql
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+    time-zone: America/Sao_Paulo
+    locale: pt_BR
+springdoc:
+  swagger-ui:
+    operations-sorter: method

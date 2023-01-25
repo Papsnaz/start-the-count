@@ -1,0 +1,26 @@
+package br.ufsm.elc1071.startthecount.rest.repository;
+
+import br.ufsm.elc1071.startthecount.rest.model.QRCodeBoletimUrna;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
+
+public interface QRCodeBoletimUrnaRepository extends JpaRepository<QRCodeBoletimUrna, Integer> {
+
+    boolean existsByIndiceAndBoletimUrnaUsuarioUsernameEqualsIgnoreCaseAndBoletimUrnaSecaoPleitoPleitoCodigoTSEAndBoletimUrnaSecaoPleitoSecaoNumeroTSEAndBoletimUrnaSecaoPleitoSecaoZonaNumeroTSEAndBoletimUrnaSecaoPleitoSecaoZonaUfSiglaEqualsIgnoreCase(Integer indiceQRCode, String username, Integer codigoPleitoTSE, Integer numeroSecaoTSE, Integer numeroZonaTSE, String siglaUF);
+
+    Optional<QRCodeBoletimUrna> findByIndiceAndBoletimUrnaUsuarioUsernameEqualsIgnoreCaseAndBoletimUrnaSecaoPleitoPleitoCodigoTSEAndBoletimUrnaSecaoPleitoSecaoNumeroTSEAndBoletimUrnaSecaoPleitoSecaoZonaNumeroTSEAndBoletimUrnaSecaoPleitoSecaoZonaUfSiglaEqualsIgnoreCase(Integer indiceQRCode, String username, Integer codigoPleitoTSE, Integer numeroSecaoTSE, Integer numeroZonaTSE, String siglaUF);
+
+    Optional<QRCodeBoletimUrna> findByBoletimUrnaUsuarioUsernameEqualsIgnoreCaseAndBoletimUrnaSecaoPleitoPleitoCodigoTSEAndBoletimUrnaSecaoPleitoSecaoNumeroTSEAndBoletimUrnaSecaoPleitoSecaoZonaNumeroTSEAndBoletimUrnaSecaoPleitoSecaoZonaUfSiglaEqualsIgnoreCase(String username, Integer codigoPleitoTSE, Integer numeroSecaoTSE, Integer numeroZonaTSE, String siglaUF);
+
+    @Modifying
+    @Transactional
+    void deleteByIndiceAndBoletimUrnaUsuarioUsernameEqualsIgnoreCaseAndBoletimUrnaSecaoPleitoPleitoCodigoTSEAndBoletimUrnaSecaoPleitoSecaoNumeroTSEAndBoletimUrnaSecaoPleitoSecaoZonaNumeroTSEAndBoletimUrnaSecaoPleitoSecaoZonaUfSiglaEqualsIgnoreCase(Integer indiceQRCode, String username, Integer codigoPleitoTSE, Integer numeroSecaoTSE, Integer numeroZonaTSE, String siglaUF);
+
+    @Modifying
+    @Transactional
+    void deleteByBoletimUrnaUsuarioUsernameEqualsIgnoreCaseAndBoletimUrnaSecaoPleitoPleitoCodigoTSEAndBoletimUrnaSecaoPleitoSecaoNumeroTSEAndBoletimUrnaSecaoPleitoSecaoZonaNumeroTSEAndBoletimUrnaSecaoPleitoSecaoZonaUfSiglaEqualsIgnoreCase(String username, Integer codigoPleitoTSE, Integer numeroSecaoTSE, Integer numeroZonaTSE, String siglaUF);
+}
